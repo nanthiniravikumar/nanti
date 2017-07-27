@@ -1,0 +1,28 @@
+class DayOffChecker
+{
+    public bool CheckDays(List<string> DaysOff)
+    {
+        string CurrentDay = DateTime.Now.DayOfWeek.ToString();
+        CurrentDay.ToLower();
+        foreach (string DayCheck in DaysOff)
+        {
+            DayCheck.ToLower();
+            if (CurrentDay == DayCheck)
+            {
+                return (true);
+            }
+        }
+        return (false);
+    }
+}
+class Program
+{
+    List<string> DaysOff = List<string>();
+    DaysOff.Add("Saturday"); 
+    DaysOff.Add("Sunday");
+    DayOffChecker CheckToday = new DayOffChecker();
+    if(CheckToday.CheckDays(DaysOff))
+    {
+        Console.WriteLine("You're Off Today!!!");
+    }
+}
